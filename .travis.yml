@@ -4,13 +4,13 @@ services:
   - docker
 
 before_install:
-  - docker build -t igorvlnascimento/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t igorvl/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run -e CI=true igorvlnascimento/react-test npm test
+  - docker run -e CI=true igorvl/react-test npm test
 
 after_success:
-  - docker build -t igorvlnascimento/multi-client ./client
-  - docker build -t igorvlnascimento/multi-nginx ./nginx
-  - docker build -t igorvlnascimento/muilt-server ./server
-  - docker build -t igorvlnascimento/multi-worker ./worker
+  - docker build -t igorvl/multi-client ./client
+  - docker build -t igorvl/multi-nginx ./nginx
+  - docker build -t igorvl/muilt-server ./server
+  - docker build -t igorvl/multi-worker ./worker
