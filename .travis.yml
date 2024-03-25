@@ -14,3 +14,10 @@ after_success:
   - docker build -t igorvl/multi-nginx ./nginx
   - docker build -t igorvl/muilt-server ./server
   - docker build -t igorvl/multi-worker ./worker
+
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --pasword-stdin
+
+  - docker push igorvl/multi-client
+  - docker push igorvl/multi-nginx
+  - docker push igorvl/multi-server
+  - docker push igorvl/multi-worker
